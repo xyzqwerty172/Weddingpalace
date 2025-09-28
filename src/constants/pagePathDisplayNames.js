@@ -1,0 +1,38 @@
+export const PAGE_PATH_DISPLAY_NAMES = {
+  '/about': 'Байгууллагын танилцуулга',
+  '/about/structure': 'Бүтэц',
+  '/about/goal': 'Эрхэм зорилго',
+  '/about/activity': 'Чиг үүрэг',
+  '/about/strategy': 'Стратегийн зорилго, зорилт',
+  '/about/management': 'Тэргүүлэх чиглэл',
+  '/services': 'Үйлчилгээ',
+  '/services/photography': 'Гэрэл зургийн үйлчилгээ',
+  '/services/photography/packages': 'Гэрэл зургийн багц',
+  '/service/arrangement': 'Үйлчилгээний төрөл',
+  '/service/wedding': 'Гэрлэх ёслолын үйлчилгээ',
+  '/service/booking': 'Гэрлэх ёслолын захиалга өгөхдөө',
+  '/service/shop': 'Худалдаа үйлчилгээ',
+  '/service/photovideo': 'Сургалт танилцуулга',
+  '/service/rent': 'Үйлчилгээний төлбөр',
+  '/news': 'Мэдээлэл',
+  '/transparency': 'Ил тод байдал',
+  '/transparency/law': 'Хууль, эрх зүй',
+  '/transparency/law/financial': 'Санхүүгийн ил тод байдал',
+  '/transparency/company/complaint': 'Өргөдөл, гомдлын шийдвэрлэсэн ажлын тайлан',
+  '/transparency/company/research': 'Судалгаа',
+  '/transparency/company/1': 'Хууль, дүрэм, журам',
+  '/transparency/company/2': 'Гадаад томилолт',
+  '/transparency/company/3': 'Гүйцэтгэлийн төлөвлөгөө',
+  '/transparency/company/4': 'Ирсэн бичгийн шийдвэрлэлт',
+  '/transparency/report': 'Тайлан',
+  '/transparency/company/report': 'Тайлан',
+  // Add more as needed
+};
+
+export const CATEGORY_DISPLAY_NAMES = [
+  'Санхүү',
+  'Хууль',
+  'Хүний нөөц',
+  'Тайлан',
+  'Бусад',
+]; 
