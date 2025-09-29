@@ -4,12 +4,10 @@ import MainLayout from "src/layouts/main";
 import { Container, Box, Typography, Stack, Button } from "@mui/material";
 import HeroImage from "src/components/image/hero-image";
 import { caligraphicFont } from "src/theme/typography";
-import { useResponsive } from "src/hooks/use-responsive";
-import Image from "src/components/image/image";
+import ResponsiveServiceImage from "src/components/image/responsive-service-image";
 import { useRouter } from "next/navigation";
 
 export default function RentView() {
-  const mdUp = useResponsive("up", "md");
   const router = useRouter();
   const imgUrl = "/assets/images/services/uilchilgeenii-tulbur.jpg";
 
@@ -35,14 +33,12 @@ export default function RentView() {
             Үйлчилгээний төлбөр
           </Typography>
 
-          {/* Display the payment image */}
-          <Box sx={{ display: "flex", justifyContent: "center", my: 3 }}>
-            {mdUp ? (
-              <Image src={imgUrl} ratio={"16/9"} />
-            ) : (
-              <Image src={imgUrl} ratio={"3/4"} />
-            )}
-          </Box>
+          {/* Display the payment image with responsive design */}
+          <ResponsiveServiceImage
+            src={imgUrl}
+            alt="Үйлчилгээний төлбөр"
+            mobileRatio="4/3"
+          />
 
           {/* Payment Information Section */}
           <Box sx={{

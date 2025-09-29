@@ -5,7 +5,8 @@ import AppBar from "@mui/material/AppBar";
 import Toolbar from "@mui/material/Toolbar";
 import { useTheme } from "@mui/material/styles";
 import Container from "@mui/material/Container";
-import Badge, { badgeClasses } from "@mui/material/Badge";
+import { badgeClasses } from "@mui/material/Badge";
+import BadgeClientOnly from "src/components/badge-client-only";
 
 import { paths } from "src/routes/paths";
 
@@ -24,7 +25,7 @@ import { navConfig } from "./config-navigation";
 // import SettingsButton from "../common/settings-button";
 // import NavigationBarView from "src/sections/navbar-view.js/navigation-bar-view";
 import { NavBasicMobile, NavBasicDesktop } from "src/components/nav-basic";
-import NavCustomMobile from "src/components/nav-basic/mobile/nav-custom-mobile";
+import NavCustomMobilePeek from "src/components/nav-basic/mobile/nav-custom-mobile-peek";
 
 // ----------------------------------------------------------------------
 
@@ -160,6 +161,10 @@ export default function Header() {
               title: "Шилэн данс",
               path: "https://shilendans.gov.mn/organization/58553?ry=2024",
             },
+            {
+              title: "ТЕНДЕР",
+              path: "/transparency/law/tender",
+            },
           ],
         },
         {
@@ -205,11 +210,10 @@ export default function Header() {
           display: "flex",
           alignItems: "center",
           justifyContent: "center",
-          lineHeight: 0,
-          pointerEvents: 'none'
+          lineHeight: 0
         }}
       >
-        <Badge
+        <BadgeClientOnly
           sx={{
             [`& .${badgeClasses.badge}`]: {
               top: 8,
@@ -234,7 +238,7 @@ export default function Header() {
               mt: 0
             }}
           />
-        </Badge>
+        </BadgeClientOnly>
       </Box>
       {/* <Toolbar
         disableGutters
@@ -358,7 +362,7 @@ export default function Header() {
                   gap: { xs: 1, sm: 2 }
                 }}
               >
-                <NavCustomMobile data={BASIC_NAV_ITEMS} />
+                <NavCustomMobilePeek data={BASIC_NAV_ITEMS} />
               </Stack>
             </>
           )}

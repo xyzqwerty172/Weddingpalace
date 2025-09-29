@@ -3,8 +3,7 @@ import MainLayout from "src/layouts/main";
 import HeroImageService from "src/components/image/hero-image-service";
 import { Container, Typography, Stack, Button, Box } from "@mui/material";
 import { caligraphicFont } from "src/theme/typography";
-import { useResponsive } from "src/hooks/use-responsive";
-import Image from "src/components/image";
+import ResponsiveServiceImage from "src/components/image/responsive-service-image";
 import Link from "@mui/material/Link";
 import { RouterLink } from "src/routes/components";
 import CustomBreadcrumbs from "src/components/custom-breadcrumbs";
@@ -12,7 +11,6 @@ import Iconify from "src/components/iconify";
 
 export default function ArrangementView4(params) {
   const length = 5;
-  const mdUp = useResponsive("up", "md");
 
   return (
     <MainLayout>
@@ -70,19 +68,11 @@ export default function ArrangementView4(params) {
             удридагч , ерөөлч / гэрлэх ёслолоо хийх боломжтой үйлчилгээ юм.
           </Typography>
 
-          {mdUp ? (
-            <Image
-              key={`image-md-1`}
-              src={`/assets/images/services/arrangement/4/1.jpg`}
-              ratio={"16/9"}
-            />
-          ) : (
-            <Image
-              key={`image-sm-1`}
-              src={`/assets/images/services/arrangement/4/1.jpg`}
-              ratio={"3/4"}
-            />
-          )}
+          <ResponsiveServiceImage
+            src={`/assets/images/services/arrangement/4/1.jpg`}
+            alt="Онлайн ёслолын үйлчилгээ"
+            mobileRatio="4/3"
+          />
           {/* <CarouselCenterMode data={arrangementData.slice(0, 4)} /> */}
           {/* <ControlledForm /> */}
         </Stack>

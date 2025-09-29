@@ -1,6 +1,8 @@
 import PropTypes from "prop-types";
 
 import Box from "@mui/material/Box";
+import { useTheme } from "@mui/material/styles";
+import { useMediaQuery } from "@mui/material";
 
 import { usePathname } from "src/routes/hooks";
 
@@ -11,6 +13,8 @@ import Header from "./header";
 
 export default function MainLayout({ children }) {
   const pathname = usePathname();
+  const theme = useTheme();
+  const isMobile = useMediaQuery(theme.breakpoints.down('md'));
 
   const homePage = pathname === "/";
 
@@ -27,6 +31,7 @@ export default function MainLayout({ children }) {
           // }),
           ...{
             pt: { xs: 8, md: 10 },
+            pl: isMobile ? 2.5 : 0, // Add left padding on mobile for peeking drawer
           },
         }}
       >

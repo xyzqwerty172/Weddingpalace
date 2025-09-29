@@ -13,7 +13,11 @@ export default function NextAppDirEmotionCacheProvider(props) {
   const { options, CacheProvider = DefaultCacheProvider, children } = props;
 
   const [registry] = React.useState(() => {
-    const cache = createCache(options);
+    const cache = createCache({
+      key: 'css',
+      prepend: true,
+      ...options,
+    });
     cache.compat = true;
     const prevInsert = cache.insert;
     let inserted = [];

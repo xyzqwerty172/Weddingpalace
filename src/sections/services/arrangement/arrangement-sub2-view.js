@@ -3,14 +3,12 @@ import MainLayout from "src/layouts/main";
 import HeroImageService from "src/components/image/hero-image-service";
 import { Container, Typography, Stack, Button, Box } from "@mui/material";
 import { caligraphicFont } from "src/theme/typography";
-import { useResponsive } from "src/hooks/use-responsive";
-import Image from "src/components/image";
+import ResponsiveServiceImage from "src/components/image/responsive-service-image";
 import CustomBreadcrumbs from "src/components/custom-breadcrumbs";
 import Iconify from "src/components/iconify";
 
 export default function ArrangementView2(params) {
   const path = "/assets/images/services/arrangement/2";
-  const mdUp = useResponsive("up", "md");
 
   return (
     <MainLayout>
@@ -73,11 +71,11 @@ export default function ArrangementView2(params) {
             ховор хувь заяаг хотлоороо хүндэтгэн дээдэлж энэхүү хуримын ёслолыг
             ёслон тэмдэглэдэг.{" "}
           </Typography>
-          {mdUp ? (
-            <Image src={`${path}/ochir-erdene.avif`} ratio={"16/9"} />
-          ) : (
-            <Image src={`${path}/ochir-erdene.avif`} ratio={"3/4"} />
-          )}
+          <ResponsiveServiceImage
+            src={`${path}/ochir-erdene.avif`}
+            alt="Очир-Эрдэнийн буюу Алмаазан хурим"
+            mobileRatio="4/3"
+          />
           <Typography>
             Алтан хурим - Хамтын амьдралаа эхлүүлэн гэр бүл болоод 50 ба түүнээс
             дээш жил ханилан гэр бүлийн ариун журмыг чин үнэнчээр сахисан настан
@@ -85,91 +83,91 @@ export default function ArrangementView2(params) {
             дэлгэр хурим юм. Энэ хуримыг өрх гэрийн хамгийн дээд баяр болгон
             тэмдэглэдэг.
           </Typography>
-          {mdUp ? (
-            <Image src={`${path}/altan-hurim.avif`} ratio={"16/9"} />
-          ) : (
-            <Image src={`${path}/altan-hurim.avif`} ratio={"3/4"} />
-          )}
+          <ResponsiveServiceImage
+            src={`${path}/altan-hurim.avif`}
+            alt="Алтан хурим"
+            mobileRatio="4/3"
+          />
           <Typography>
             Оюу эрдэнийн хурим: Хамтын амьдралаа эхлүүлэн гэр бүл болоод 45 ба
             түүнээс дээш жил ханилан гэр бүлийн ариун журмыг чин үнэнчээр
             сахисан настан буурлуудыг үр хүүхэд, ах дүүсээрээ хийдэг хурим юм.
           </Typography>
-          {mdUp ? (
-            <Image src={`${path}/oyu-hurim.avif`} ratio={"16/9"} />
-          ) : (
-            <Image src={`${path}/oyu-hurim.avif`} ratio={"3/4"} />
-          )}
+          <ResponsiveServiceImage
+            src={`${path}/oyu-hurim.avif`}
+            alt="Оюу эрдэнийн хурим"
+            mobileRatio="4/3"
+          />
           <Typography>
             Зэс эрдэнийн хурим: Хамтын амьдралаа эхлүүлэн гэр бүл болоод 40 ба
             түүнээс дээш жил ханилж, гэр бүлийн ариун журмыг сахисан нас тогтсон
             хосуудын хийх хуримын ёслол.
           </Typography>
-          {mdUp ? (
-            <Image src={`${path}/zes-hurim.avif`} ratio={"16/9"} />
-          ) : (
-            <Image src={`${path}/zes-hurim.avif`} ratio={"3/4"} />
-          )}
+          <ResponsiveServiceImage
+            src={`${path}/zes-hurim.avif`}
+            alt="Зэс эрдэнийн хурим"
+            mobileRatio="4/3"
+          />
           <Typography>
             Шүр эрдэнийн хурим: Хамтын амьдралаа эхлүүлэн гэр бүл болоод 35 ба
             түүнээс дээш жил ханилж, гэр бүлийн ариун журмыг сахисан төвшин
             сайхан хосуудын хийх хуримын ёслол.
           </Typography>
-          {mdUp ? (
-            <Image src={`${path}/shur-hurim.avif`} ratio={"16/9"} />
-          ) : (
-            <Image src={`${path}/shur-hurim.avif`} ratio={"3/4"} />
-          )}
+          <ResponsiveServiceImage
+            src={`${path}/shur-hurim.avif`}
+            alt="Шүр эрдэнийн хурим"
+            mobileRatio="4/3"
+          />
           <Typography>
             Сувд-Эрдэнийн хурим: Хамтын амьдралаа эхлүүлэн гэр бүл болоод 30 ба
             түүнээс дээш жил ханилж, гэр бүлийн ариун журмыг сахисан аз жаргалаа
             бялхааж байгаа хосуудын хийх хуримын ёслол.
           </Typography>
-          {mdUp ? (
-            <Image src={`${path}/suvdan-hurim.avif`} ratio={"16/9"} />
-          ) : (
-            <Image src={`${path}/suvdan-hurim.avif`} ratio={"3/4"} />
-          )}
+          <ResponsiveServiceImage
+            src={`${path}/suvdan-hurim.avif`}
+            alt="Сувд-Эрдэнийн хурим"
+            mobileRatio="4/3"
+          />
           <Typography>
             Мөнгөн хурим: Хамтын амьдралаа эхлүүлэн гэр бүл болоод 25 ба түүнээс
             дээш жил ханилж, гэр бүлийн ариун журмыг сахисан идэр насны хосуудын
             хийх хуримын ёслол.
           </Typography>
-          {mdUp ? (
-            <Image src={`${path}/mungun-hurim.avif`} ratio={"16/9"} />
-          ) : (
-            <Image src={`${path}/mungun-hurim.avif`} ratio={"3/4"} />
-          )}
+          <ResponsiveServiceImage
+            src={`${path}/mungun-hurim.avif`}
+            alt="Мөнгөн хурим"
+            mobileRatio="4/3"
+          />
           <Typography>
             Номин-Эрдэнийн хурим: Хамтын амьдралаа эхлүүлэн гэр бүл болоод 20 ба
             түүнээс дээш жил ханилж, гэр бүлийн ариун журмыг сахин хайр
             сэтгэлдээ умбан байгаа ид насны хосуудын хийх хуримын ёслол.
           </Typography>
-          {mdUp ? (
-            <Image src={`${path}/nomin-erdene.avif`} ratio={"16/9"} />
-          ) : (
-            <Image src={`${path}/nomin-erdene.avif`} ratio={"3/4"} />
-          )}
+          <ResponsiveServiceImage
+            src={`${path}/nomin-erdene.avif`}
+            alt="Номин-Эрдэнийн хурим"
+            mobileRatio="4/3"
+          />
           <Typography>
             Тана-Эрдэнийн хурим: Хамтын амьдралаа эхлүүлэн гэр бүл болоод 15 ба
             түүнээс дээш жил ханилж, гэр бүлийн ариун журмыг сахин хайр
             сэтгэлдээ умбан байгаа хосуудын хийх хуримын ёслол
           </Typography>
-          {mdUp ? (
-            <Image src={`${path}/tanan-erdene.avif`} ratio={"16/9"} />
-          ) : (
-            <Image src={`${path}/tanan-erdene.avif`} ratio={"3/4"} />
-          )}
+          <ResponsiveServiceImage
+            src={`${path}/tanan-erdene.avif`}
+            alt="Тана-Эрдэнийн хурим"
+            mobileRatio="4/3"
+          />
           <Typography>
             Ган-Эрдэнийн хурим: Хамтын амьдралаа эхлүүлэн гэр бүл болоод 10 ба
             түүнээс дээш жил ханилж, гэр бүлийн ариун журмыг сахин хайр
             сэтгэлдээ умбан байгаа хосуудын хийх хуримын ёслол.
           </Typography>
-          {mdUp ? (
-            <Image src={`${path}/ganerdene.avif`} ratio={"16/9"} />
-          ) : (
-            <Image src={`${path}/ganerdene.avif`} ratio={"3/4"} />
-          )}
+          <ResponsiveServiceImage
+            src={`${path}/ganerdene.avif`}
+            alt="Ган-Эрдэнийн хурим"
+            mobileRatio="4/3"
+          />
           {/* <CarouselCenterMode data={arrangementData.slice(0, 4)} /> */}
           {/* <ControlledForm /> */}
         </Stack>

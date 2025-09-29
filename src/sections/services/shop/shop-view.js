@@ -4,11 +4,9 @@ import MainLayout from "src/layouts/main";
 import { Container, Box, Typography, Stack } from "@mui/material";
 import HeroImage from "src/components/image/hero-image";
 import { caligraphicFont } from "src/theme/typography";
-import { useResponsive } from "src/hooks/use-responsive";
-import Image from "src/components/image/image";
+import ResponsiveServiceImage from "src/components/image/responsive-service-image";
 
 export default function ShopView(params) {
-  const mdUp = useResponsive("up", "md");
   const imgUrl = "/assets/images/services/hudaldaa-uilchilgee.jpg";
 
   return (
@@ -29,14 +27,12 @@ export default function ShopView(params) {
             Худалдаа үйлчилгээ
           </Typography>
 
-          {/* Display the service image */}
-          <Box sx={{ display: "flex", justifyContent: "center", my: 3 }}>
-            {mdUp ? (
-              <Image src={imgUrl} ratio={"16/9"} />
-            ) : (
-              <Image src={imgUrl} ratio={"3/4"} />
-            )}
-          </Box>
+          {/* Display the service image with responsive design */}
+          <ResponsiveServiceImage
+            src={imgUrl}
+            alt="Худалдаа үйлчилгээ"
+            mobileRatio="4/3"
+          />
         </Stack>
       </Container>
     </MainLayout>

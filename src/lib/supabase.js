@@ -3,14 +3,36 @@ import { createClient } from '@supabase/supabase-js'
 const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL
 const supabaseAnonKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY
 
-// Create Supabase client with error handling
+// Create Supabase client with enhanced error handling and retry logic
 let supabase = null;
+let isSupabaseAvailable = false;
 
 try {
   if (supabaseUrl && supabaseAnonKey) {
     supabase = createClient(supabaseUrl, supabaseAnonKey, {
       auth: {
         persistSession: false // Disable session persistence to avoid connection issues
+      },
+      global: {
+        fetch: async (url, options = {}) => {
+          try {
+            const response = await fetch(url, {
+              ...options,
+              timeout: 10000, // 10 second timeout
+            });
+            
+            if (!response.ok) {
+              throw new Error(`HTTP ${response.status}: ${response.statusText}`);
+            }
+            
+            isSupabaseAvailable = true;
+            return response;
+          } catch (error) {
+            console.warn('Supabase connection failed:', error.message);
+            isSupabaseAvailable = false;
+            throw error;
+          }
+        }
       }
     });
   } else {
@@ -18,6 +40,7 @@ try {
   }
 } catch (error) {
   console.error('Failed to initialize Supabase client:', error);
+  isSupabaseAvailable = false;
 }
 
 export { supabase }

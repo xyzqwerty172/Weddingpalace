@@ -60,10 +60,10 @@ export default function ThemeProvider({ children }) {
   theme.components = merge(componentsOverrides(theme), contrast.components);
 
   return (
-    <NextAppDirEmotionCacheProvider options={{ key: 'css' }}>
+    <NextAppDirEmotionCacheProvider options={{ key: 'css', prepend: true }}>
       <MuiThemeProvider theme={theme}>
         <RTL themeDirection={settings.themeDirection}>
-          <CssBaseline />
+          <CssBaseline enableColorScheme />
           {children}
         </RTL>
       </MuiThemeProvider>

@@ -9,21 +9,20 @@ export function badge(theme) {
         dot: {
           borderRadius: '50%',
         },
+        badge: {
+          // Base stable styles for all badges
+          [`&.${badgeClasses.invisible}`]: {
+            transform: 'unset',
+          },
+        },
         root: ({ ownerState }) => {
           const alway = ownerState.variant === 'alway';
-
           const online = ownerState.variant === 'online';
-
           const busy = ownerState.variant === 'busy';
-
           const offline = ownerState.variant === 'offline';
-
           const invisible = ownerState.variant === 'invisible';
 
           const baseStyles = {
-            [`&.${badgeClasses.invisible}`]: {
-              transform: 'unset',
-            },
             width: 10,
             zIndex: 9,
             padding: 0,
@@ -36,21 +35,36 @@ export function badge(theme) {
             },
           };
 
-          return {
-            ...(online && {
+          // Use more stable conditional logic
+          if (invisible) {
+            return {
+              [`& .${badgeClasses.badge}`]: {
+                display: 'none',
+              },
+            };
+          }
+
+          if (online) {
+            return {
               [`& .${badgeClasses.badge}`]: {
                 ...baseStyles,
                 backgroundColor: theme.palette.success.main,
               },
-            }),
-            ...(busy && {
+            };
+          }
+
+          if (busy) {
+            return {
               [`& .${badgeClasses.badge}`]: {
                 ...baseStyles,
                 backgroundColor: theme.palette.error.main,
                 '&:before': { width: 6, height: 2 },
               },
-            }),
-            ...(offline && {
+            };
+          }
+
+          if (offline) {
+            return {
               [`& .${badgeClasses.badge}`]: {
                 ...baseStyles,
                 backgroundColor: theme.palette.text.disabled,
@@ -60,8 +74,11 @@ export function badge(theme) {
                   borderRadius: '50%',
                 },
               },
-            }),
-            ...(alway && {
+            };
+          }
+
+          if (alway) {
+            return {
               [`& .${badgeClasses.badge}`]: {
                 ...baseStyles,
                 backgroundColor: theme.palette.warning.main,
@@ -76,13 +93,10 @@ export function badge(theme) {
                   transform: 'translateY(1px) rotate(125deg)',
                 },
               },
-            }),
-            ...(invisible && {
-              [`& .${badgeClasses.badge}`]: {
-                display: 'none',
-              },
-            }),
-          };
+            };
+          }
+
+          return {};
         },
       },
     },
