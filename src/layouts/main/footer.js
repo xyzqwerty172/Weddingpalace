@@ -122,7 +122,7 @@ export default function Footer() {
         </Link>
 
         <Typography variant="caption" component="div" sx={{ color: "white" }}>
-          © 2024 Хуримын ордон ХХК, Бүх эрх хуулиар хамгаалагдсан
+          © 2025 ГЭРЛЭХ ЁСЛОЛЫН ОРДОН, Бүх эрх хуулиар хамгаалагдсан
         </Typography>
       </Container>
     </Box>
@@ -296,7 +296,7 @@ export default function Footer() {
         </Box>
 
         <Typography variant="body2" sx={{ mt: 10, color: "white" }}>
-          © {currentYear} Хуримын ордон ХХК, Бүх эрх хуулиар хамгаалагдсан
+          © {currentYear} ГЭРЛЭХ ЁСЛОЛЫН ОРДОН, Бүх эрх хуулиар хамгаалагдсан
         </Typography>
       </Container>
     </Box>

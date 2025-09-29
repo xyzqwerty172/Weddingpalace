@@ -2,6 +2,18 @@ import { Barlow, Public_Sans } from "next/font/google";
 import { Montserrat, Inter } from "next/font/google";
 import localFont from "next/font/local";
 
+// Fallback font stack for better reliability
+const FALLBACK_FONTS = [
+  'system-ui',
+  '-apple-system', 
+  'BlinkMacSystemFont',
+  'Segoe UI',
+  'Roboto',
+  'Helvetica Neue',
+  'Arial',
+  'sans-serif'
+];
+
 // ----------------------------------------------------------------------
 
 export function remToPx(value) {
@@ -26,18 +38,23 @@ export function responsiveFontSizes({ sm, md, lg }) {
   };
 }
 
+// Font declarations must be at module scope as const with literal values
 export const primaryFont = Inter({
   weight: ["400", "500", "600", "700", "800", "900"],
   subsets: ["latin"],
   display: "swap",
-  fallback: ["Helvetica", "Arial", "sans-serif"],
+  fallback: ['system-ui', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Roboto', 'Helvetica Neue', 'Arial', 'sans-serif'],
+  adjustFontFallback: false,
+  preload: true,
 });
 
 export const secondaryFont = Montserrat({
   weight: ["400", "500", "600", "700", "800", "900"],
   subsets: ["latin"],
   display: "swap",
-  fallback: ["Helvetica", "Arial", "sans-serif"],
+  fallback: ['system-ui', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Roboto', 'Helvetica Neue', 'Arial', 'sans-serif'],
+  adjustFontFallback: false,
+  preload: true,
 });
 
 export const caligraphicFont = localFont({

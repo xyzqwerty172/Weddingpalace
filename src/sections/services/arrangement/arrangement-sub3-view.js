@@ -3,8 +3,7 @@ import MainLayout from "src/layouts/main";
 import HeroImageService from "src/components/image/hero-image-service";
 import { Container, Typography, Stack, Button, Box } from "@mui/material";
 import { caligraphicFont } from "src/theme/typography";
-import { useResponsive } from "src/hooks/use-responsive";
-import Image from "src/components/image";
+import ResponsiveServiceImage from "src/components/image/responsive-service-image";
 import Link from "@mui/material/Link";
 import { RouterLink } from "src/routes/components";
 import CustomBreadcrumbs from "src/components/custom-breadcrumbs";
@@ -12,7 +11,6 @@ import Iconify from "src/components/iconify";
 
 export default function ArrangementView3(params) {
   const length = 8;
-  const mdUp = useResponsive("up", "md");
 
   return (
     <MainLayout>
@@ -70,21 +68,14 @@ export default function ArrangementView3(params) {
             зохион байгулан ажиллаж байна.
           </Typography>
 
-          {Array.from({ length }, (_, i) =>
-            mdUp ? (
-              <Image
-                key={`image-md-${i}`}
-                src={`/assets/images/services/arrangement/3/${i + 1}.png`}
-                ratio={"16/9"}
-              />
-            ) : (
-              <Image
-                key={`image-sm-${i}`}
-                src={`/assets/images/services/arrangement/3/${i + 1}.png`}
-                ratio={"3/4"}
-              />
-            )
-          )}
+          {Array.from({ length }, (_, i) => (
+            <ResponsiveServiceImage
+              key={`image-${i}`}
+              src={`/assets/images/services/arrangement/3/${i + 1}.png`}
+              alt={`Гэрлэх ёслолын явуулын үйлчилгээ ${i + 1}`}
+              mobileRatio="4/3"
+            />
+          ))}
           {/* <CarouselCenterMode data={arrangementData.slice(0, 4)} /> */}
           {/* <ControlledForm /> */}
         </Stack>

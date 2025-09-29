@@ -18,6 +18,7 @@ export const PAGE_PATH_DISPLAY_NAMES = {
   '/transparency': 'Ил тод байдал',
   '/transparency/law': 'Хууль, эрх зүй',
   '/transparency/law/financial': 'Санхүүгийн ил тод байдал',
+  '/transparency/law/tender': 'ТЕНДЕР',
   '/transparency/company/complaint': 'Өргөдөл, гомдлын шийдвэрлэсэн ажлын тайлан',
   '/transparency/company/research': 'Судалгаа',
   '/transparency/company/1': 'Хууль, дүрэм, журам',

@@ -11,6 +11,8 @@ import { primaryFont } from "src/theme/typography";
 import ProgressBar from "src/components/progress-bar";
 import { MotionLazy } from "src/components/animate/motion-lazy";
 import { SettingsDrawer, SettingsProvider } from "src/components/settings";
+import FontErrorBoundary from "src/components/font-error-boundary";
+import FontPreloader from "src/components/font-preloader";
 
 import { AuthProvider } from "src/auth/context/jwt";
 
@@ -30,23 +32,30 @@ export const metadata = {
   keywords: "react,material,kit,application,dashboard,admin,template",
   manifest: "/manifest.json",
   icons: [
-    { rel: "icon", url: "/logo/logo-wedding.png" },
+    { rel: "icon", url: "/favicon/favicon.ico" },
+    { rel: "icon", url: "/favicon/favicon.svg", type: "image/svg+xml" },
     {
       rel: "icon",
       type: "image/png",
-      sizes: "16x16",
-      url: "/logo/logo-wedding.png",
-    },
-    {
-      rel: "icon",
-      type: "image/png",
-      sizes: "32x32",
-      url: "/logo/logo-wedding.png",
+      sizes: "96x96",
+      url: "/favicon/favicon-96x96.png",
     },
     {
       rel: "apple-touch-icon",
       sizes: "180x180",
-      url: "/logo/logo-wedding.png",
+      url: "/favicon/apple-touch-icon.png",
+    },
+    {
+      rel: "icon",
+      type: "image/png",
+      sizes: "192x192",
+      url: "/favicon/web-app-manifest-192x192.png",
+    },
+    {
+      rel: "icon",
+      type: "image/png",
+      sizes: "512x512",
+      url: "/favicon/web-app-manifest-512x512.png",
     },
   ],
 };
@@ -55,26 +64,29 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en" className={primaryFont.className}>
       <body>
-        <AuthProvider>
-          <SettingsProvider
-            defaultSettings={{
-              themeMode: "light", // 'light' | 'dark'
-              themeDirection: "ltr", //  'rtl' | 'ltr'
-              themeContrast: "default", // 'default' | 'bold'
-              themeLayout: "vertical", // 'vertical' | 'horizontal' | 'mini'
-              themeColorPresets: "default", // 'default' | 'cyan' | 'purple' | 'blue' | 'orange' | 'red'
-              themeStretch: false,
-            }}
-          >
-            <ThemeProvider>
-              <MotionLazy>
-                <SettingsDrawer />
-                <ProgressBar />
-                {children}
-              </MotionLazy>
-            </ThemeProvider>
-          </SettingsProvider>
-        </AuthProvider>
+        <FontPreloader />
+        <FontErrorBoundary>
+          <AuthProvider>
+            <SettingsProvider
+              defaultSettings={{
+                themeMode: "light", // 'light' | 'dark'
+                themeDirection: "ltr", //  'rtl' | 'ltr'
+                themeContrast: "default", // 'default' | 'bold'
+                themeLayout: "vertical", // 'vertical' | 'horizontal' | 'mini'
+                themeColorPresets: "default", // 'default' | 'cyan' | 'purple' | 'blue' | 'orange' | 'red'
+                themeStretch: false,
+              }}
+            >
+              <ThemeProvider>
+                <MotionLazy>
+                  <SettingsDrawer />
+                  <ProgressBar />
+                  {children}
+                </MotionLazy>
+              </ThemeProvider>
+            </SettingsProvider>
+          </AuthProvider>
+        </FontErrorBoundary>
       </body>
     </html>
   );
