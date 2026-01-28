@@ -210,7 +210,12 @@ export default function Header() {
           alignItems: "center",
           justifyContent: "center",
           lineHeight: 0,
-          pointerEvents: 'none'
+          pointerEvents: 'auto',
+          cursor: 'pointer',
+          transition: 'opacity 0.2s ease',
+          '&:hover': {
+            opacity: 0.8
+          }
         }}
       >
         <Badge
